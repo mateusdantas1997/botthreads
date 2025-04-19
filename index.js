@@ -1,13 +1,12 @@
-const browser = await chromium.launch({
-  headless: true
-});
+const { chromium } = require('playwright');
+const fs = require('fs');
 
 // Carrega as frases
 const frases = fs.readFileSync('./frases.txt', 'utf-8').split('\n').filter(Boolean);
 
 // Função principal
 (async () => {
-  const browser = await chromium.launch({ headless: false });
+  const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({
     storageState: 'auth.json', // pra não logar toda vez
   });
