@@ -1,5 +1,6 @@
-const { chromium } = require('playwright');
-const fs = require('fs');
+const browser = await chromium.launch({
+  headless: true
+});
 
 // Carrega as frases
 const frases = fs.readFileSync('./frases.txt', 'utf-8').split('\n').filter(Boolean);
